@@ -1,0 +1,72 @@
+<template name="menu">
+    <div class="bs-component">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{homePage}}">Ema</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{homePage}}">HubLogs <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Environments <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{createEnvironmentPath}}">Create Environment</a></li>
+                                <li><a href="{{manageEnvironmentPath}}">Manage Environments</a></li>
+                                <li><a href="{{consumerPropsParentPath}}">Consumer Properties</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{configurationParentPath}}">Configuration</a></li>
+                                <li><a href="{{configurationParentPath}}">Update Configuration</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Performance <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{performanceParentPath}}">Performance</a></li>
+                            </ul>
+                        </li>
+                        {{#if isInRole 'admin, manage-local'}}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dev<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{manageUsers}}">Manage Users</a></li>
+                            </ul>
+                        </li>
+                        {{/if}}
+                        {{#if isInRole 'admin, manage-versions'}}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Versions<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{manageUsers}}">Manage Users</a></li>
+                                </ul>
+                            </li>
+                        {{/if}}
+                        {{#if isInRole 'admin, manage-flows'}}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Flows<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{manageUsers}}">Manage Users</a></li>
+                                </ul>
+                            </li>
+                        {{/if}}
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{loginPath}}">Login</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</template>
