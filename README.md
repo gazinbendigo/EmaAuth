@@ -8,10 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Meteor v1.4 install the software and how to install them
+Install [Meteor](https://www.meteor.com/) v1.4 
 
 ```
-Give examples
+OSX/Linux: curl https://install.meteor.com/ | sh
+Windows: Download the installer
 ```
 
 ### Installing
