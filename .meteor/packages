@@ -25,6 +25,7 @@ kadira:blaze-layout
 underscore@1.0.9
 sacha:spin
 less@2.7.5_1
+twbs:bootstrap-noglyph
 nemo64:bootstrap
 alanning:roles
 accounts-password@1.3.0

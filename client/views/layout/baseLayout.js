@@ -76,3 +76,9 @@ function userNameVerified (user) {
         return username.verified;
     })
 }
+
+////////////////////////////////////////////////////////////////////
+// Configure Accounts-ui
+Accounts.ui.config({
+    passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
+});

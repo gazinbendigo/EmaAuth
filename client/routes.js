@@ -119,3 +119,10 @@ publicRoutes.route('/userprofile/:adm', {
         BlazeLayout.render("baseLayout", {content: "default", menu: "menu"});
     }
 });
+
+FlowRouter.route('/spacebars', {
+    name: 'spacebars',
+    action: function() {
+        BlazeLayout.render("otherLayout", {content: "spacebars"});
+    }
+});
