@@ -2,49 +2,52 @@
  * Created by holly on 27/11/16.
  */
 
-Template.menu.onCreated(function(){
+;(function() {
+    "use strict";
 
-});
+    Template.menu.onCreated(function () {
 
-Template.menu.rendered = function() {
+    });
 
-};
+    Template.menu.rendered = function () {
 
-Template.menu.events({
+    };
 
-});
+    Template.menu.events({});
 
-Template.menu.helpers({
+    Template.menu.helpers({
 
-    homePage: () => {
-        return FlowRouter.path("home");
-    },
+        homePage: () => {
+            return FlowRouter.path("home");
+        },
 
-    consumerPropsParentPath: () => {
-        return FlowRouter.path('manageConsumerProperties');
-    },
+        consumerPropsParentPath: () => {
+            return FlowRouter.path('manageConsumerProperties');
+        },
 
-    createEnvironmentPath: () => {
-        return FlowRouter.path('createEnvironment');
-    },
+        createEnvironmentPath: () => {
+            return FlowRouter.path('createEnvironment');
+        },
 
-    manageEnvironmentPath: () => {
-        return FlowRouter.path('manageEnvironment');
-    },
+        manageEnvironmentPath: () => {
+            return FlowRouter.path('manageEnvironment');
+        },
 
-    configurationParentPath: () => {
-        return FlowRouter.path('configuration');
-    },
+        configurationParentPath: () => {
+            return FlowRouter.path('configuration');
+        },
 
-    performanceParentPath: () => {
-        return FlowRouter.path('performance');
-    },
+        performanceParentPath: () => {
+            return FlowRouter.path('performance');
+        },
 
-    manageUsers: () => {
-        return FlowRouter.path("development");
-    },
+        manageUsers: () => {
+            return FlowRouter.path("development");
+        },
 
-    loginPath: () => {
-        return FlowRouter.path("login");
-    }
-});
+        loginPath: () => {
+            return FlowRouter.path("login");
+        }
+    });
+
+}());

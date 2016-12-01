@@ -29,24 +29,6 @@
 //     /*TEMPLATE_RENDERED_CODE*/
 // };
 //
-// Template.baseLayout.events({
-//     "click": function(event) { // Fix Bootstrap Dropdown Menu Collapse on click outside Menu
-//         var clickover = $(event.target).closest(".dropdown-toggle").length;
-//         var opened = $(".navbar-collapse").hasClass("in");
-//         if (opened === true && !clickover) {
-//             $('.navbar-collapse').collapse('hide');
-//         }
-//     },
-//
-//     "keyup": function(event) {
-//         if (event.keyCode === 27) { // Bootstrap Dropdown Menu Collapse on ESC pressed
-//             var opened = $(".navbar-collapse").hasClass("in");
-//             if (opened === true) {
-//                 $('.navbar-collapse').collapse('hide');
-//             }
-//         }
-//     }
-// });
 //
 // Template.baseLayout.helpers({
 //     "privateData": function() {
@@ -63,22 +45,45 @@
 //     }
 // });
 
-Template.baseLayout.helpers({
-    notVerified: function () {
-        var user = Meteor.user();
+;(function(){
+    "use strict";
+    Template.baseLayout.helpers({
+        notVerified: function () {
+            var user = Meteor.user();
 
-        return !userNameVerified(user);
+            return !userNameVerified(user);
+        }
+    });
+
+    Template.baseLayout.events({
+        "click": function(event) { // Fix Bootstrap Dropdown Menu Collapse on click outside Menu
+            var clickover = $(event.target).closest(".dropdown-toggle").length;
+            var opened = $(".navbar-collapse").hasClass("in");
+            if (opened === true && !clickover) {
+                $('.navbar-collapse').collapse('hide');
+            }
+        },
+
+        "keyup": function(event) {
+            if (event.keyCode === 27) { // Bootstrap Dropdown Menu Collapse on ESC pressed
+                var opened = $(".navbar-collapse").hasClass("in");
+                if (opened === true) {
+                    $('.navbar-collapse').collapse('hide');
+                }
+            }
+        }
+    });
+
+    function userNameVerified (user) {
+        return _.some(user.username, function (username) {
+            return username.verified;
+        })
     }
-});
-
-function userNameVerified (user) {
-    return _.some(user.username, function (username) {
-        return username.verified;
-    })
-}
 
 ////////////////////////////////////////////////////////////////////
-// Configure Accounts-ui
-Accounts.ui.config({
-    passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
-});
+// Configure Accounts-ui to accept Username or email address
+// as acceptable login criteria
+    Accounts.ui.config({
+        passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
+    });
+}());
